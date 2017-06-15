@@ -1,6 +1,48 @@
 //accordingtoallknownlawsofaviation,thereisnowayabeeshouldbeabletofly.
 console.log("kill me");
+//Facebook
+const express = require('express')
+const bodyParser = require('body-parser')
+const request = require('request')
+const app = express()
 
+app.set('port', (process.env.PORT || 5000))
+
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
+app.use(bodyParser.json())
+
+app.get('/', function(req, res) {
+  res.send('memes')
+})
+
+app.get('/webhook/', function(req, res) {
+
+  if (req.query['hub.verify_token'] ===
+    'my_voice_is_my_password_verify_me') {
+      res.send(req.query['hub.challenge'])
+    }
+  )
+  res.send('No entry')
+})
+
+
+app.listen(app.get('port'), function() {
+  console.log('running on port', app.get('port'))
+
+
+})
+
+
+
+
+
+
+
+
+
+//Twitter
 var Twit = require('twit');
 
 //var config = require('./config.js');
@@ -8,17 +50,17 @@ var Twit = require('twit');
 //console.log(config);
 
 var T = new Twit({
-   consumer_key: 'N9O5sZYoOt1uI7LEFV0WP2Tpb'
-  , consumer_secret: '5FDsbg5IayxJYKGKTz9MypYSVK1kzwfOhfnOJiF912XjQynSxP'
-  , access_token: '875342235369259008-NyuZyXEf6tpppJZt9X4D33NbczNskyV'
-  , access_token_secret: 'fPSXuuobMFxJuIKjfLhbT3hWrtHnhiVo0o2fc79FIwxKT'
+  consumer_key: 'N9O5sZYoOt1uI7LEFV0WP2Tpb',
+  consumer_secret: '5FDsbg5IayxJYKGKTz9MypYSVK1kzwfOhfnOJiF912XjQynSxP',
+  access_token: '875342235369259008-NyuZyXEf6tpppJZt9X4D33NbczNskyV',
+  access_token_secret: 'fPSXuuobMFxJuIKjfLhbT3hWrtHnhiVo0o2fc79FIwxKT'
 })
 
 console.log(T);
 
 //creating tweet
 function generateTweet() {
-	  //WORD BANK
+  //WORD BANK
 
   //random stuff
   var adjectives = ['', 'detailed', 'introspective', 'evaluative', 'detailed', 'insightful', 'clear', 'fabulous', 'extensive', 'persuasive'];
@@ -207,36 +249,36 @@ function generateTweet() {
   var output;
   output = templates[0];
   output = capitalizeFirstLetter(output);
-	return output;
+  return output;
 }
 
 tweetIt();
-setInterval(tweetIt,4140000);
+setInterval(tweetIt, 4140000);
 
 
 //tweeting function
 function tweetIt() {
-	var tweet = {
-	status: generateTweet()
-	};
-	
-	T.post('statuses/update', tweet, tweeted);
-	console.log(tweet);
-	function tweeted(err,data,response) {
-		if (err) {
-			console.log("ERROR");
-		}
-		else {
-			console.log("SUCC!");
-		}
-	}
-	
-	
-	
+  var tweet = {
+    status: generateTweet()
+  };
+
+  T.post('statuses/update', tweet, tweeted);
+  console.log(tweet);
+
+  function tweeted(err, data, response) {
+    if (err) {
+      console.log("ERROR");
+    } else {
+      console.log("SUCC!");
+    }
+  }
+
+
+
 }
 
 //yargyharg
 var http = require("http");
 setInterval(function() {
-    http.get("http://hscenglishbot.herokuapp.com");
+  http.get("http://hscenglishbot.herokuapp.com");
 }, 300000); // every 5 minutes (300000)
