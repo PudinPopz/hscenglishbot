@@ -96,7 +96,7 @@ function receivedMessage(event) {
           sendTextMessage(senderID, generateTweet());
       }
     } else if (messageAttachments) {
-      sendTextMessage(senderID, "Message with attachment received");
+      sendTextMessage(senderID, "delet this");
     }
 
 
