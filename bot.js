@@ -93,7 +93,7 @@ function receivedMessage(event) {
           break;
 
         default:
-          sendTextMessage(senderID, messageText);
+          sendTextMessage(senderID, generateTweet());
       }
     } else if (messageAttachments) {
       sendTextMessage(senderID, "Message with attachment received");
