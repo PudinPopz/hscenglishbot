@@ -35,10 +35,11 @@ app.get('/webhook/', function(req, res) {
   res.send('No entry')
 })
 
+
 //yarged from facey doco
 app.post('/webhook', function (req, res) {
   var data = req.body;
-
+console.log('hi');
   // Make sure this is a page subscription
   if (data.object === 'page') {
 
@@ -383,7 +384,7 @@ function tweetIt() {
 
   function tweeted(err, data, response) {
     if (err) {
-      console.log("ERROR");
+      console.log("TWEET ERROR");
     } else {
       console.log("SUCC!");
     }
