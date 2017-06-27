@@ -5,6 +5,8 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 
+const pagetoken = "EAACEdEose0cBAD4k0qnUqdsjJDYN30dwPodVoE2ZBOuRKOwD8d621U43jSsewUghzTaFwJLnGNEkNg0oBZCEempj3U8mWpaZCDIMhPuiCrp5rSAaC1Yf6QEiQdJhlUwI6G8JpZAyVUvMIsQcZASgtZCSvnLH7i0hoNr7decq2zbu2sOq9DjuMbQ7pzupmNr8wZD";
+
 var FB = require('fb');
 // for post API
 
@@ -21,7 +23,7 @@ FB.api('oauth/access_token', {
    }
 console.log("AYY PASSED FACEY");
     accessToken = res.access_token;
-    accessToken = "EAACEdEose0cBAHFV7F9Auyrh3xcaYUWIlEKZBzQpBCsvoZCZCaytZAH9qXMeHshRsMBrr8ZB14zwSv0gkox6ApORWRdZBOaKZAEGN3bMg0Dj9wpRl3jOC9ZAOnYR1jIsxxDyZCUZB2E1O1QGTsSNCmg4ZCUkGqe7WG72GCn86CAvZASvr4qDaPDRTHqbmZB3BHiipkZAXYO3qSTg98UgZDZD";
+    accessToken = pagetoken;
     FB.setAccessToken(accessToken);
 });
 console.log(accessToken);
@@ -443,7 +445,7 @@ function tweetIt() {
 facebookpost();
 setInterval(facebookpost, 4140000);
 function facebookpost() {
-  accessToken = "EAACEdEose0cBAHFV7F9Auyrh3xcaYUWIlEKZBzQpBCsvoZCZCaytZAH9qXMeHshRsMBrr8ZB14zwSv0gkox6ApORWRdZBOaKZAEGN3bMg0Dj9wpRl3jOC9ZAOnYR1jIsxxDyZCUZB2E1O1QGTsSNCmg4ZCUkGqe7WG72GCn86CAvZASvr4qDaPDRTHqbmZB3BHiipkZAXYO3qSTg98UgZDZD";
+  accessToken = pagetoken;
     FB.setAccessToken(accessToken);
 
     console.log(accessToken);
@@ -460,15 +462,6 @@ function facebookpost() {
     });
 
 }
-
-
-
-
-
-
-
-
-
 //yargyharg
 var http = require("http");
 setInterval(function() {
