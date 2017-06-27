@@ -4,6 +4,10 @@ console.log("kill me");
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
+
+var FB = require('fb');
+// for post API
+
 const app = express()
 
 const token = process. env.FB_VERIFY_TOKEN
@@ -24,6 +28,7 @@ app.use(bodyParser.json())
 
 app.get('/', function(req, res) {
   res.send('memes')
+
 })
 
 app.get('/webhook/', function(req, res) {
@@ -411,6 +416,31 @@ function tweetIt() {
 
 
 }
+
+//facebook post function
+
+facebookpost();
+function facebookpost() {
+    FB.setAccessToken(access);
+
+    var body = 'kill me';
+    FB.api('me/feed', 'post', { message: body }, function (res) {
+      if(!res || res.error) {
+        console.log(!res ? 'error occurred' : res.error);
+        return;
+      }
+      console.log('Post Id: ' + res.id);
+    });
+
+}
+
+
+
+
+
+
+
+
 
 //yargyharg
 var http = require("http");
