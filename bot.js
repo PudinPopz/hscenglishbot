@@ -8,6 +8,27 @@ const request = require('request')
 var FB = require('fb');
 // for post API
 
+var accessToken;
+FB.api('oauth/access_token', {
+   client_id: '323085914780624',
+   client_secret: 'cbb74a5294f1966bcd643c3559c9bf59',
+   grant_type: 'client_credentials'
+}, function (res) {
+   if(!res || res.error) {
+       console.log(!res ? 'error occurred' : res.error);
+       console.log("FB API ERROR :(");
+       return;
+   }
+console.log("AYY PASSED FACEY");
+    accessToken = res.access_token;
+    accessToken = "EAACEdEose0cBAHFV7F9Auyrh3xcaYUWIlEKZBzQpBCsvoZCZCaytZAH9qXMeHshRsMBrr8ZB14zwSv0gkox6ApORWRdZBOaKZAEGN3bMg0Dj9wpRl3jOC9ZAOnYR1jIsxxDyZCUZB2E1O1QGTsSNCmg4ZCUkGqe7WG72GCn86CAvZASvr4qDaPDRTHqbmZB3BHiipkZAXYO3qSTg98UgZDZD";
+    FB.setAccessToken(accessToken);
+});
+console.log(accessToken);
+
+console.log("REGURGITATING");
+console.log(FB.getAccessToken());
+
 const app = express()
 
 const token = process. env.FB_VERIFY_TOKEN
@@ -420,13 +441,19 @@ function tweetIt() {
 //facebook post function
 
 facebookpost();
+setInterval(facebookpost, 4140000);
 function facebookpost() {
-    FB.setAccessToken(access);
+  accessToken = "EAACEdEose0cBAHFV7F9Auyrh3xcaYUWIlEKZBzQpBCsvoZCZCaytZAH9qXMeHshRsMBrr8ZB14zwSv0gkox6ApORWRdZBOaKZAEGN3bMg0Dj9wpRl3jOC9ZAOnYR1jIsxxDyZCUZB2E1O1QGTsSNCmg4ZCUkGqe7WG72GCn86CAvZASvr4qDaPDRTHqbmZB3BHiipkZAXYO3qSTg98UgZDZD";
+    FB.setAccessToken(accessToken);
 
-    var body = 'kill me';
+    console.log(accessToken);
+    console.log("RUNNING FBPOST AYY LMAO");
+
+    var body = generateTweet();
     FB.api('me/feed', 'post', { message: body }, function (res) {
       if(!res || res.error) {
         console.log(!res ? 'error occurred' : res.error);
+        console.log("FB POST ERROR :(");
         return;
       }
       console.log('Post Id: ' + res.id);
