@@ -274,4 +274,5 @@ console.log(global.generateQuestion);
 
 
 }
+ randomiseQuestion()
 setInterval(randomiseQuestion,69000);

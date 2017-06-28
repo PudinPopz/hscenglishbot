@@ -33,6 +33,7 @@ FB.api('oauth/access_token', {
        return;
    }
 console.log("AYY PASSED FACEY");
+console.log(global.generateQuestion);
     accessToken = res.access_token;
     accessToken = pagetoken;
     FB.setAccessToken(accessToken);
