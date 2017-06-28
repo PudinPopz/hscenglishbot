@@ -8,7 +8,14 @@ const request = require('request');
 const pagetoken = "EAAEl2E0us9ABABzrFVpalTfV6gBSLVAvCestWZCHvFlTgZA0qu5wg92kd494jD7RVRdhFP5mIOeQZAOCLimKe3QELTpDNkQgYuU9oaMCBe4X2aZCIUEan4iPpaHGlb9yJvJVIjEmWvYCN8njo2AFwlqauoJyua5MMJ1jZCaDbZAwZDZD";
 
 var FB = require('fb');
-// for post API
+
+//self scripts
+const fbscraper = require('./fbscraper');
+
+//DEV MODE ON OR OFF
+
+const devmode = false;
+// for post API (NOT IN USE)
 
 var accessToken;
 FB.api('oauth/access_token', {
@@ -43,7 +50,9 @@ console.log(access);
 
 
 app.set('port', (process.env.PORT || 5000));
-//FACEBOOK MESSENGER
+//FACEBOOK MESSENGER (NOT IN USE)
+
+
 app.use(bodyParser.urlencoded({
   extended: false
 }));
@@ -426,8 +435,10 @@ function tweetIt() {
     status: generateTweet()
   };
 
-  T.post('statuses/update', tweet, tweeted);
-  console.log(tweet);
+    if (!devmode) {
+      T.post('statuses/update', tweet, tweeted);
+      console.log(tweet);
+    }
 
   function tweeted(err, data, response) {
     if (err) {
@@ -453,15 +464,22 @@ function facebookpost() {
     console.log("RUNNING FBPOST AYY LMAO");
 
     var body = generateTweet();
-    FB.api('me/feed', 'post', { message: body }, function (res) {
-      if(!res || res.error) {
-        console.log(!res ? 'error occurred' : res.error);
-        console.log("FB POST ERROR :(");
-        return;
-      }
-      console.log('Post Id: ' + res.id);
-    });
-
+    if (!devmode) {
+        FB.api('me/feed', 'post', { message: body }, function (res) {
+          if(!res || res.error) {
+            console.log(!res ? 'error occurred' : res.error);
+            console.log("FB POST ERROR :(");
+            return;
+          }
+          console.log('Post Id: ' + res.id);
+          console.log('THINGY: '+ body)
+        }
+      );
+    }
+    else {
+      console.log('THINGY: '+ body);
+      console.log("NOT SENT. TURN OFF DEV MODE.");
+    }
 }
 //yargyharg
 var http = require("http");
