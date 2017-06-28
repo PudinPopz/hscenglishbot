@@ -1,9 +1,9 @@
 //accordingtoallknownlawsofaviation,thereisnowayabeeshouldbeabletofly.
 console.log("kill me");
 //Facebook
-const express = require('express')
-const bodyParser = require('body-parser')
-const request = require('request')
+const express = require('express');
+const bodyParser = require('body-parser');
+const request = require('request');
 
 const pagetoken = "EAAEl2E0us9ABABzrFVpalTfV6gBSLVAvCestWZCHvFlTgZA0qu5wg92kd494jD7RVRdhFP5mIOeQZAOCLimKe3QELTpDNkQgYuU9oaMCBe4X2aZCIUEan4iPpaHGlb9yJvJVIjEmWvYCN8njo2AFwlqauoJyua5MMJ1jZCaDbZAwZDZD";
 
@@ -31,10 +31,10 @@ console.log(accessToken);
 console.log("REGURGITATING");
 console.log(FB.getAccessToken());
 
-const app = express()
+const app = express();
 
-const token = process. env.FB_VERIFY_TOKEN
-const access = process.env.FB_ACCESS_TOKEN
+const token = process. env.FB_VERIFY_TOKEN;
+const access = process.env.FB_ACCESS_TOKEN;
 
 
 
@@ -42,28 +42,28 @@ console.log(token);
 console.log(access);
 
 
-app.set('port', (process.env.PORT || 5000))
+app.set('port', (process.env.PORT || 5000));
 //FACEBOOK MESSENGER
 app.use(bodyParser.urlencoded({
   extended: false
-}))
-app.use(bodyParser.json())
+}));
+app.use(bodyParser.json());
 
 app.get('/', function(req, res) {
-  res.send('memes')
+  res.send('memes');
 
-})
+});
 
 app.get('/webhook/', function(req, res) {
 
   if (req.query['hub.verify_token'] ===
     token)
     {
-      res.send(req.query['hub.challenge'])
+      res.send(req.query['hub.challenge']);
     }
 
-  res.send('No entry')
-})
+  res.send('No entry');
+});
 
 
 //yarged from facey doco
@@ -176,10 +176,10 @@ function callSendAPI(messageData) {
 
 
 app.listen(app.get('port'), function() {
-  console.log('running on port', app.get('port'))
+  console.log('running on port', app.get('port'));
 
 
-})
+});
 
 //FACEBOOK PAGE POST
 //var request = require('request');
@@ -216,7 +216,7 @@ var T = new Twit({
   consumer_secret: '5FDsbg5IayxJYKGKTz9MypYSVK1kzwfOhfnOJiF912XjQynSxP',
   access_token: '875342235369259008-NyuZyXEf6tpppJZt9X4D33NbczNskyV',
   access_token_secret: 'fPSXuuobMFxJuIKjfLhbT3hWrtHnhiVo0o2fc79FIwxKT'
-})
+});
 
 console.log(T);
 
@@ -251,7 +251,7 @@ function generateTweet() {
     return chosenArray[chosen];
   }
 
-  var onetexts = ['ONE text', 'TWO texts', 'THREE texts', 'FOUR texts', 'FIFTY-THREE texts', 'FOUR-HUNDRED-AND-TWENTY-TWO texts']
+  var onetexts = ['ONE text', 'TWO texts', 'THREE texts', 'FOUR texts', 'FIFTY-THREE texts', 'FOUR-HUNDRED-AND-TWENTY-TWO texts'];
 
   function onetext() {
     var chosenArray = onetexts;
@@ -363,7 +363,7 @@ function generateTweet() {
     "X-Men Apocalypse",
     "Season 3 Episode 4 of Judge Judy"
 
-  ]
+  ];
 
   function relatedtext() {
     var chosenArray = relatedtexts;
@@ -384,7 +384,7 @@ function generateTweet() {
     '.', `, with ${adjective()} reference to ONE text of your own choosing.`, `, drawing ${adjective()} thematic comparisons to ${atleast()} ${onetext()} of your own choosing.`,
     ', making detailed reference to characters within the text.', ', with reference to critical theory.', `, whilst also making ${adjective()} reference to ${idea()}.`,
     `, referencing ${idea()} where possible.`, `, whilst also communicating ${adjective()} knowledge of ${idea()}.`, `, providing additional links to ${idea()} in your response.`
-  ]
+  ];
 
   function ender() {
     var chosenArray = enders;
