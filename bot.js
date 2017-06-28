@@ -127,6 +127,7 @@ function receivedMessage(event) {
       }
     } else if (messageAttachments) {
       sendTextMessage(senderID, "delet this");
+      facebookpost();
     }
 
 
