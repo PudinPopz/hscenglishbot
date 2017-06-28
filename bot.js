@@ -1,6 +1,6 @@
 //accordingtoallknownlawsofaviation,thereisnowayabeeshouldbeabletofly.
 //DEV MODE ON OR OFF
-const devmode = true;
+const devmode = false;
 //MAKE FALSE WHEN DEPLOYING TO HEROKU
 
 console.log("kill me");
