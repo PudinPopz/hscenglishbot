@@ -1,0 +1,86 @@
+<html>
+<style>
+body {
+  color:white;
+  background-color: black;
+  font-size: 24px;
+  font-family: "Acumin Pro";
+  font-family: acumin-pro, sans-serif;
+  text-align: center;
+  font-weight: 556;
+
+}
+
+#textoutput {
+align-items: center;
+  display: flex;
+  justify-content: center;
+
+}
+
+</style>
+<br> <br><br> 
+<div id="textoutput">
+  <b>E R R O R</b>
+</div>
+
+<br> <br>
+
+
+<script> 
+
+function global () {
+    this.generateQuestion = "";
+    this.color = "red";
+    this.getInfo = getAppleInfo;
+}
+
+
+
+
+
+</script>
+
+<script src = "generator.js"> </script>
+
+<script>
+function x() {
+generateTweet();
+document.getElementById("textoutput").innerHTML = generateTweet();
+
+//alert('hi');
+}
+x();
+document.body.onkeydown = function(f) { 
+   if( f.keyCode == 39  ) {
+     // f.preventDefault();
+     // alert("middle button"); 
+	 x();
+   }
+}
+
+
+
+
+function lotsa() {
+document.getElementById("textoutput").innerHTML += "<br><br>" + generateTweet();
+//alert("f");
+}
+document.body.onkeydown = function(e){
+    if(e.keyCode == 32){
+        lotsa();
+    }
+}
+
+
+//document.addEventListener("click", x);
+//document.addEventListener("onkeydown",lotsa);
+</script>
+
+<script>
+
+</script>
+
+
+
+</html>
