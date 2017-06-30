@@ -1,11 +1,19 @@
 //accordingtoallknownlawsofaviation,thereisnowayabeeshouldbeabletofly.
 //DEV MODE ON OR OFF
-const devmode = false;
+/*jshint esversion: 6 */
+const devmode = false;   //IMPORTANT!
 //MAKE FALSE WHEN DEPLOYING TO HEROKU
+const version = 0.3;
 
 console.log("kill me");
 //Facebook
 const express = require('express');
+const path = require('path');
+//const cheerio = require('cheerio');
+//const fs = require('fs');
+//const bot = express();
+//const port = 8000;
+const colors = require('colors');
 const bodyParser = require('body-parser');
 const request = require('request');
 
@@ -13,30 +21,34 @@ const pagetoken = "EAAEl2E0us9ABABzrFVpalTfV6gBSLVAvCestWZCHvFlTgZA0qu5wg92kd494
 
 var FB = require('fb');
 
-//self scripts
-const fbscraper = require('./scraper');
+//self scripts (make sure they are ran AFTER)
+global.m = require('./misclib');
+const scraper = require('./scraper');
+global.quotelibrary = require('./quotelibrary');
 const generator = require('./generator');
 
+//m.notif(global.memes);
 
+m.notif("HSCENGLISHBOT: VERSION " + version + "");
 
 // for post API
 
 var accessToken;
 FB.api('oauth/access_token', {
-   client_id: '323085914780624',
-   client_secret: 'cbb74a5294f1966bcd643c3559c9bf59',
-   grant_type: 'client_credentials'
-}, function (res) {
-   if(!res || res.error) {
-       console.log(!res ? 'error occurred' : res.error);
-       console.log("FB API ERROR :(");
-       return;
-   }
-console.log("AYY PASSED FACEY");
-console.log(global.generateQuestion);
-    accessToken = res.access_token;
-    accessToken = pagetoken;
-    FB.setAccessToken(accessToken);
+  client_id: '323085914780624',
+  client_secret: 'cbb74a5294f1966bcd643c3559c9bf59',
+  grant_type: 'client_credentials'
+}, function(res) {
+  if (!res || res.error) {
+    console.log(!res ? 'error occurred' : res.error);
+    console.log("FB API ERROR :(");
+    return;
+  }
+  console.log("AYY PASSED FACEY");
+  console.log(global.generateQuestion);
+  accessToken = res.access_token;
+  accessToken = pagetoken;
+  FB.setAccessToken(accessToken);
 });
 console.log(accessToken);
 
@@ -45,7 +57,7 @@ console.log(FB.getAccessToken());
 
 const app = express();
 
-const token = process. env.FB_VERIFY_TOKEN;
+const token = process.env.FB_VERIFY_TOKEN;
 const access = process.env.FB_ACCESS_TOKEN;
 
 
@@ -71,19 +83,18 @@ app.get('/', function(req, res) {
 app.get('/webhook/', function(req, res) {
 
   if (req.query['hub.verify_token'] ===
-    token)
-    {
-      res.send(req.query['hub.challenge']);
-    }
+    token) {
+    res.send(req.query['hub.challenge']);
+  }
 
   res.send('No entry');
 });
 
 
 //yarged from facey doco
-app.post('/webhook', function (req, res) {
+app.post('/webhook', function(req, res) {
   var data = req.body;
-console.log('hi');
+  console.log('hi');
   // Make sure this is a page subscription
   if (data.object === 'page') {
 
@@ -113,36 +124,36 @@ console.log('hi');
 
 function receivedMessage(event) {
 
-    var senderID = event.sender.id;
-    var recipientID = event.recipient.id;
-    var timeOfMessage = event.timestamp;
-    var message = event.message;
+  var senderID = event.sender.id;
+  var recipientID = event.recipient.id;
+  var timeOfMessage = event.timestamp;
+  var message = event.message;
 
-    console.log("Received message for user %d and page %d at %d with message:",
-      senderID, recipientID, timeOfMessage);
-    console.log(JSON.stringify(message));
+  console.log("Received message for user %d and page %d at %d with message:",
+    senderID, recipientID, timeOfMessage);
+  console.log(JSON.stringify(message));
 
-    var messageId = message.mid;
+  var messageId = message.mid;
 
-    var messageText = message.text;
-    var messageAttachments = message.attachments;
+  var messageText = message.text;
+  var messageAttachments = message.attachments;
 
-    if (messageText) {
+  if (messageText) {
 
-      // If we receive a text message, check to see if it matches a keyword
-      // and send back the example. Otherwise, just echo the text we received.
-      switch (messageText) {
-        case 'generic':
-          sendGenericMessage(senderID);
-          break;
+    // If we receive a text message, check to see if it matches a keyword
+    // and send back the example. Otherwise, just echo the text we received.
+    switch (messageText) {
+      case 'generic':
+        sendGenericMessage(senderID);
+        break;
 
-        default:
-          sendTextMessage(senderID, global.generateQuestion);
-      }
-    } else if (messageAttachments) {
-      sendTextMessage(senderID, "delet this");
-      facebookpost();
+      default:
+        sendTextMessage(senderID, global.generateQuestion);
     }
+  } else if (messageAttachments) {
+    sendTextMessage(senderID, "delet this");
+    facebookpost();
+  }
 
 
   console.log("Message data: ", event.message);
@@ -168,11 +179,13 @@ function sendTextMessage(recipientId, messageText) {
 function callSendAPI(messageData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: { access_token: access },
+    qs: {
+      access_token: access
+    },
     method: 'POST',
     json: messageData
 
-  }, function (error, response, body) {
+  }, function(error, response, body) {
     if (!error && response.statusCode == 200) {
       var recipientId = body.recipient_id;
       var messageId = body.message_id;
@@ -200,17 +213,20 @@ app.listen(app.get('port'), function() {
 //var request = require('request');
 var OAuth2 = require('oauth2').OAuth2;
 var oauth2 = new OAuth2("323085914780624",
-                        "cbb74a5294f1966bcd643c3559c9bf59",
-                       "", "https://www.facebook.com/dialog/oauth",
-                   "https://graph.facebook.com/oauth/access_token",
-                   null);
+  "cbb74a5294f1966bcd643c3559c9bf59",
+  "", "https://www.facebook.com/dialog/oauth",
+  "https://graph.facebook.com/oauth/access_token",
+  null);
 
-app.get('/facebook/auth',function (req, res) {
-      var redirect_uri = "https://hscenglishbot.herokuapp.com/" +    "/Path_To_Be_Redirected_to_After_Verification";
-      // For eg. "http://localhost:3000/facebook/callback"
-      var params = {'redirect_uri': redirect_uri, 'scope':'user_about_me,publish_actions'};
-      res.redirect(oauth2.getAuthorizeUrl(params));
-      console.log("Facebook auth stuff");
+app.get('/facebook/auth', function(req, res) {
+  var redirect_uri = "https://hscenglishbot.herokuapp.com/" + "/Path_To_Be_Redirected_to_After_Verification";
+  // For eg. "http://localhost:3000/facebook/callback"
+  var params = {
+    'redirect_uri': redirect_uri,
+    'scope': 'user_about_me,publish_actions'
+  };
+  res.redirect(oauth2.getAuthorizeUrl(params));
+  console.log("Facebook auth stuff");
 });
 
 
@@ -248,10 +264,10 @@ function tweetIt() {
     status: global.generateQuestion
   };
 
-    if (!devmode) {
-      T.post('statuses/update', tweet, tweeted);
-      console.log(tweet);
-    }
+  if (!devmode) {
+    T.post('statuses/update', tweet, tweeted);
+    console.log(tweet);
+  }
 
   function tweeted(err, data, response) {
     if (err) {
@@ -269,30 +285,32 @@ function tweetIt() {
 
 facebookpost();
 setInterval(facebookpost, 4140000);
+
 function facebookpost() {
   accessToken = pagetoken;
-    FB.setAccessToken(accessToken);
+  FB.setAccessToken(accessToken);
 
-    console.log(accessToken);
-    console.log("RUNNING FBPOST AYY LMAO");
+  console.log(accessToken);
+  console.log("RUNNING FBPOST AYY LMAO");
 
-    var body = global.generateQuestion;
-    if (!devmode) {
-        FB.api('me/feed', 'post', { message: body }, function (res) {
-          if(!res || res.error) {
-            console.log(!res ? 'error occurred' : res.error);
-            console.log("FB POST ERROR :(");
-            return;
-          }
-          console.log('Post Id: ' + res.id);
-          console.log('THINGY: '+ body)
-        }
-      );
-    }
-    else {
-      console.log('THINGY: '+ body);
-      console.log("NOT SENT. TURN OFF DEV MODE.");
-    }
+  var body = global.generateQuestion;
+  if (!devmode) {
+    FB.api('me/feed', 'post', {
+      message: body
+    }, function(res) {
+      if (!res || res.error) {
+        console.log(!res ? 'error occurred' : res.error);
+        console.log("FB POST ERROR :(");
+        return;
+      }
+      console.log('Post Id: ' + res.id);
+      console.log('THINGY: ' + body);
+    });
+  } else {
+    console.log('THINGY: ' + body);
+    console.log(colors.red.underline.bold("NOT SENT - DEV MODE ENABLED."));
+    console.log(colors.white.underline.bold("To turn off dev mode, set const 'devmode' to 'false' at the top of bot.js. Mkay?"));
+  }
 }
 //yargyharg
 var http = require("http");

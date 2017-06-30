@@ -11,7 +11,10 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
+    "cheerio": "^1.0.0-rc.1",
     "express": "^4.15.3",
+    "handlebars": "^4.0.10",
+    "path": "^0.12.7",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
     "twit": "^2.2.5"

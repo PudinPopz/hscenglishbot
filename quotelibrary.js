@@ -1,0 +1,3 @@
+global.memes = '3';
+//memes  = 4;
+//DOES NOT INCLUDE BOOK QUOTES - THAT'S FOR THE GOODREADS SCRAPER
