@@ -12,8 +12,11 @@
   "dependencies": {
     "body-parser": "^1.17.2",
     "cheerio": "^1.0.0-rc.1",
+    "colors": "^1.1.2",
     "express": "^4.15.3",
+    "fb": "^2.0.0",
     "handlebars": "^4.0.10",
+    "oauth2": "0.0.1",
     "path": "^0.12.7",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
