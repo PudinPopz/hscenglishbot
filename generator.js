@@ -594,7 +594,7 @@ var directiontemplates = [
   //templates
   var templates = [
     `${instruction()} ${k()} ${idea()} ${k2()} ${relatedtext()}${ender()}`,
-    ` ${quote()}${String.fromCharCode(13)}${String.fromCharCode(13)}${quotedirections()}`
+    ` ${quote()}${String.fromCharCode(13)}${String.fromCharCode(13)} ${quotedirections()}`
 
 
   ];
