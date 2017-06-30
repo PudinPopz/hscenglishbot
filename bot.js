@@ -23,7 +23,7 @@ var FB = require('fb');
 
 //self scripts (make sure they are ran AFTER)
 global.m = require('./misclib');
-const scraper = require('./scraper');
+//const scraper = require('./scraper'); scraper disabled due to bugs
 global.quotelibrary = require('./quotelibrary');
 const generator = require('./generator');
 
