@@ -18,7 +18,7 @@
     "fb": "^2.0.0",
     "fs": "0.0.1-security",
     "handlebars": "^4.0.10",
-    "node-pre-gyp": "^0.6.36",
+  
     "oauth2": "0.0.1",
     "path": "^0.12.7",
     "request": "^2.81.0",
