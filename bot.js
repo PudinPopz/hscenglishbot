@@ -3,7 +3,7 @@
 /*jshint esversion: 6 */
 const devmode = false;   //IMPORTANT!
 //MAKE FALSE WHEN DEPLOYING TO HEROKU
-const version = 0.3;
+const version = 0.4;
 
 console.log("kill me");
 //Facebook
@@ -26,6 +26,7 @@ global.m = require('./misclib');
 //const scraper = require('./scraper'); scraper disabled due to bugs
 global.quotelibrary = require('./quotelibrary');
 const generator = require('./generator');
+const messengerbot = require('./messengerbot');
 
 //m.notif(global.memes);
 

@@ -11,10 +11,11 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "cheerio": "^1.0.0-rc.1",
+    "cheerio": "^1.0.0-rc.2",
     "colors": "^1.1.2",
     "express": "^4.15.3",
     "fb": "^2.0.0",
+    "fs": "0.0.1-security",
     "handlebars": "^4.0.10",
     "oauth2": "0.0.1",
     "path": "^0.12.7",
