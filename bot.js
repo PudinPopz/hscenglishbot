@@ -1,7 +1,7 @@
 //accordingtoallknownlawsofaviation,thereisnowayabeeshouldbeabletofly.
 //DEV MODE ON OR OFF
 /*jshint esversion: 6 */
-const devmode = false;   //IMPORTANT!
+const devmode = true;   //IMPORTANT!
 //MAKE FALSE WHEN DEPLOYING TO HEROKU
 const version = 0.4;
 
@@ -24,9 +24,11 @@ var FB = require('fb');
 //self scripts (make sure they are ran AFTER)
 global.m = require('./misclib');
 //const scraper = require('./scraper'); scraper disabled due to bugs
-global.quotelibrary = require('./quotelibrary');
+global.quotelibrary = require('./scripts/quotelibrary');
 const generator = require('./generator');
 const messengerbot = require('./messengerbot');
+const imagemaker = require('./scripts/imagemaker');
+
 
 //m.notif(global.memes);
 
