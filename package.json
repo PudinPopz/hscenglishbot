@@ -11,7 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "canvas-prebuilt": "^1.6.5-prerelease.1",
+   // "canvas-prebuilt": "^1.6.5-prerelease.1",
     "cheerio": "^1.0.0-rc.2",
     "colors": "^1.1.2",
     "express": "^4.15.3",
