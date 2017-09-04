@@ -11,20 +11,20 @@
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.17.2",
-   
+    "canvas-prebuilt": "^1.6.5-prerelease.1",
     "cheerio": "^1.0.0-rc.2",
     "colors": "^1.1.2",
     "express": "^4.15.3",
     "fb": "^2.0.0",
     "fs": "0.0.1-security",
     "handlebars": "^4.0.10",
+    "node": "latest",
     "node-pre-gyp": "^0.6.36",
     "oauth2": "0.0.1",
     "path": "^0.12.7",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
-    "twit": "^2.2.5",
-	"node": "latest"
+    "twit": "^2.2.5"
   },
   "devDependencies": {
     "chai": "^4.0.2",
