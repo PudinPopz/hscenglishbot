@@ -3,28 +3,28 @@ console.log('generator fired up');
 //generator
 function generateTweet() {
 
-//ez functions
-function randomfromarray(array) {
-  return array[Math.floor(Math.random()*array.length)];
-}
-function jsUcfirst(string)
-{
+  //ez functions
+  function randomfromarray(array) {
+    return array[Math.floor(Math.random() * array.length)];
+  }
+
+  function jsUcfirst(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
-}
+  }
 
-//CREATIVE WRITING FRIDAY FLAG
-var friday = false;
+  //CREATIVE WRITING FRIDAY FLAG
+  var friday = false;
 
 
 
-var chosenquote = global.quote;
-//persistent vars
-var topic = "";
-var determinedtopic = "";
-var determinedtopicno = 0;
-var typeofresponse = "essay";
-var firstrunforidea = true;
-var firstrunfortopicornotopic = true;
+  var chosenquote = global.quote;
+  //persistent vars
+  var topic = "";
+  var determinedtopic = "";
+  var determinedtopicno = 0;
+  var typeofresponse = "essay";
+  var firstrunforidea = true;
+  var firstrunfortopicornotopic = true;
   //WORD BANK
 
   //random stuff
@@ -69,13 +69,12 @@ var firstrunfortopicornotopic = true;
     return chosenArray[chosen];
   }
 
-var oneoranindividual;
-if (Math.random < 0.5) {
-  oneoranindividual = 'one';
-}
-else {
-  oneoranindividual = 'an individual';
-}
+  var oneoranindividual;
+  if (Math.random < 0.5) {
+    oneoranindividual = 'one';
+  } else {
+    oneoranindividual = 'an individual';
+  }
 
   //list of instructions
   var instructions = ['evaluate', 'analyse', 'examine', 'discuss', 'illustrate', 'explore', 'assess', 'explain'];
@@ -104,19 +103,19 @@ else {
     return chosenArray[chosen];
   }
   //ideas
-//DO NOT DISRUPT ARRAY BY PUTTING ELEMENTS INSIDE OR BETWEEN - ALWAYS ADD STUFF TO THE END BECAUSE I AM A TERRIBLE PROGRAMMER.
+  //DO NOT DISRUPT ARRAY BY PUTTING ELEMENTS INSIDE OR BETWEEN - ALWAYS ADD STUFF TO THE END BECAUSE I AM A TERRIBLE PROGRAMMER.
   var ideas = ['honesty', 'discovery', 'discovery of place', 'self discovery', 'isolation', 'discovery of community', 'morbid discovery', //next is 7
     'personal discovery', "the hero's journey", 'dream-like narrative structure', 'intense human relationships', 'textual integrity',
     'post-colonialism', 'Marxist theory', 'globalist themes', 'historical integrity', 'feminist theory', 'cultural discovery', 'discovery of culture', //next is 19
     'discovery of self', 'intimacy', 'cultural appropriation', 'humanity', 'Marxism', 'the contrast between light and dark', 'morality',
     'context', 'culture', 'belonging', 'community', 'introspection', 'characterisation', 'World Bank literature', 'place', 'racial tensions', 'tension', 'conflict', 'gender roles', 'transitions', 'change', 'personal transitions',
-    'audience accessibility','audience','post-9/11 social commentary','cultural belonging', 'intellectual transitions', 'the immigrant\'s plight', 'postmodernism', 'capitalist critique',
-    'globalisation','identity', 'religious imagery', 'romanticism', 'memory'
+    'audience accessibility', 'audience', 'post-9/11 social commentary', 'cultural belonging', 'intellectual transitions', 'the immigrant\'s plight', 'postmodernism', 'capitalist critique',
+    'globalisation', 'identity', 'religious imagery', 'romanticism', 'memory'
   ];
   //im so sorry
- var AOSlist = [
-   1,2,3,4,5,6,7,8,19,27,28,29,36,38,40,44,45,50
- ];
+  var AOSlist = [
+    1, 2, 3, 4, 5, 6, 7, 8, 19, 27, 28, 29, 36, 38, 40, 44, 45, 50
+  ];
 
   function idea() {
     var chosenArray = ideas;
@@ -128,74 +127,110 @@ else {
       chosen = 0;
     }
 
-//LAST CHANCE FORCING OF AOS QUESTIONS!
-//This is to give them a much needed boost.
+    //LAST CHANCE FORCING OF AOS QUESTIONS!
+    //This is to give them a much needed boost.
     if (Math.random < 0.5) { //Now there's a 50% chance of an AOS question.
       //I GUESS THIS COULD ACT AS A LIST OF AOS IDEAS
-        var randomnumber = Math.floor((Math.random() * 18));
-          //ok jamie bad code is still bad code even if you make it look pretty
-          //YES THIS IS HOW IT CHOOSES RANDOMLY BETWEEN THEM IK
-          //ALL THIS WORK JUST TO TWEAK THE RANDOMISER A BIT
-          if(randomnumber==0){chosen = 1;}
-          if(randomnumber==1){chosen = 2;}
-          if(randomnumber==2){chosen = 3;}
-          if(randomnumber==3){chosen = 4;}
-          if(randomnumber==4){chosen = 5;}
-          if(randomnumber==5){chosen = 6;}
-          if(randomnumber==6){chosen = 7;}
-          if(randomnumber==7){chosen = 8;}
-          if(randomnumber==8){chosen = 19;} //discovery of self
-          if(randomnumber==9){chosen = 27;} //culture
-          if(randomnumber==10){chosen = 28;}
-          if(randomnumber==11){chosen = 29;} //community
-          if(randomnumber==12){chosen = 36;} //conflict
-          if(randomnumber==13){chosen = 38;} //transitions
-          if(randomnumber==14){chosen = 40;} //personal transitions
-          if(randomnumber==15){chosen = 44;} //cultural belonging
-          if(randomnumber==16){chosen = 45;} //intellectual transitions
-          if(randomnumber==17){chosen = 50;} //identity
+      var randomnumber = Math.floor((Math.random() * 18));
+      //ok jamie bad code is still bad code even if you make it look pretty
+      //YES THIS IS HOW IT CHOOSES RANDOMLY BETWEEN THEM IK
+      //ALL THIS WORK JUST TO TWEAK THE RANDOMISER A BIT
+      if (randomnumber == 0) {
+        chosen = 1;
+      }
+      if (randomnumber == 1) {
+        chosen = 2;
+      }
+      if (randomnumber == 2) {
+        chosen = 3;
+      }
+      if (randomnumber == 3) {
+        chosen = 4;
+      }
+      if (randomnumber == 4) {
+        chosen = 5;
+      }
+      if (randomnumber == 5) {
+        chosen = 6;
+      }
+      if (randomnumber == 6) {
+        chosen = 7;
+      }
+      if (randomnumber == 7) {
+        chosen = 8;
+      }
+      if (randomnumber == 8) {
+        chosen = 19;
+      } //discovery of self
+      if (randomnumber == 9) {
+        chosen = 27;
+      } //culture
+      if (randomnumber == 10) {
+        chosen = 28;
+      }
+      if (randomnumber == 11) {
+        chosen = 29;
+      } //community
+      if (randomnumber == 12) {
+        chosen = 36;
+      } //conflict
+      if (randomnumber == 13) {
+        chosen = 38;
+      } //transitions
+      if (randomnumber == 14) {
+        chosen = 40;
+      } //personal transitions
+      if (randomnumber == 15) {
+        chosen = 44;
+      } //cultural belonging
+      if (randomnumber == 16) {
+        chosen = 45;
+      } //intellectual transitions
+      if (randomnumber == 17) {
+        chosen = 50;
+      } //identity
 
+    }
+
+    //TOPIC DETERMINATION
+    //will on an offchance determine topic
+    //Determined topics are generally for AOS - they have powers to get quotes.
+    if (firstrunforidea) { // only runs if its the first time.
+      topic = chosenArray[chosen];
+      if (topic.includes('discovery')) {
+        determinedtopic = 'discovery';
+        determinedtopicno = 0;
+      }
+      if (topic.includes('identity')) {
+        determinedtopic = 'identity';
+        determinedtopicno = 1;
+      }
+      if (topic.includes('belonging') || topic.includes('isolation')) {
+        determinedtopic = 'belonging';
+        determinedtopicno = 2;
+      }
+      if (topic.includes('transitions')) {
+        determinedtopic = 'transitions';
+        determinedtopicno = 3;
+      }
+      if (topic.includes('journey')) {
+        determinedtopic = 'journey';
+        determinedtopicno = 4;
+      }
+      if (topic.includes('conflict')) {
+        determinedtopic = 'conflict';
+        determinedtopicno = 5;
+      }
+      if (topic.includes('culture')) {
+        determinedtopic = 'culture';
+        determinedtopicno = 6;
+      }
+      if (topic.includes('community')) {
+        determinedtopic = 'community';
+        determinedtopicno = 7;
       }
 
-//TOPIC DETERMINATION
-//will on an offchance determine topic
-//Determined topics are generally for AOS - they have powers to get quotes.
-    if (firstrunforidea)  { // only runs if its the first time.
-      topic = chosenArray[chosen];
-          if (topic.includes('discovery')) {
-              determinedtopic = 'discovery';
-              determinedtopicno = 0;
-          }
-          if (topic.includes('identity')) {
-              determinedtopic = 'identity';
-              determinedtopicno = 1;
-          }
-          if (topic.includes('belonging') || topic.includes('isolation')) {
-              determinedtopic = 'belonging';
-              determinedtopicno = 2;
-          }
-          if (topic.includes('transitions')) {
-              determinedtopic = 'transitions';
-              determinedtopicno = 3;
-          }
-          if (topic.includes('journey')) {
-              determinedtopic = 'journey';
-              determinedtopicno = 4;
-          }
-          if (topic.includes('conflict')) {
-              determinedtopic = 'conflict';
-              determinedtopicno = 5;
-          }
-          if (topic.includes('culture')) {
-              determinedtopic = 'culture';
-              determinedtopicno = 6;
-          }
-          if (topic.includes('community')) {
-              determinedtopic = 'community';
-              determinedtopicno = 7;
-          }
-
-    }   //Stuff'll be done here later. Trust me. Around the line 260 mark, to be exact.
+    } //Stuff'll be done here later. Trust me. Around the line 260 mark, to be exact.
 
     firstrunforidea = false; //lets the script know if its run before
     return chosenArray[chosen];
@@ -351,7 +386,7 @@ else {
     `, referencing ${idea()} where possible.`, `, whilst also communicating ${adjective()} knowledge of ${idea()}.`, `, providing additional links to ${idea()} in your response.`
   ];
 
-//QUOTE GENERATION
+  //QUOTE GENERATION
   function quote() {
     var chosenArray = quotes;
     var chosen = 0;
@@ -361,234 +396,318 @@ else {
       chosen = 0;
     }
     //return chosenArray[chosen];
-  //OK SO QUOTE GENERATION IS A VERY COMPLICATED PROCESS GODDAMN IT
-//TEMPLATE WITHIN A TEMPLATE :(
-//Possible thingies (just a reminder):
-// 1,2,3,4,5,6,7,8,19,27,28,29,36,38,40,44,45,50        (part of array AOSlist)
-//Possible determinedtopic values (also a reminder):
-// discovery,identity,belonging,transitions,journey,conflict,culture,community
-var associationsorfriendships;
-if (Math.random < 0.5) {associationsorfriendships = "associations";} else {associationsorfriendships = "friendships";}
-var transitionortransitioning;
-if (Math.random < 0.75) {transitionortransitioning = "transition";} else {transitionortransitioning = "transitioning";}
-var engageinoravoid;
-if (Math.random < 0.5) {engageinoravoid = "engage in";} else {engageinoravoid = "avoid";}
-var engaginginoravoiding;
-if (Math.random < 0.5) {engaginginoravoiding = "engaging in";} else if (Math.random < 0.5) {engaginginoravoiding = "avoiding";} else {engaginginoravoiding = "";}
-var stuffyoucandotoculture = ['participate in','create', `participate in ${oneoranindividual}\'s`];
-var cultureverb = stuffyoucandotoculture[Math.floor((Math.random() * stuffyoucandotoculture.length))];
-function neworblank(){if (Math.random < 0.5) {return "new ";} else {return "";}}
-
-var languageformsofdeterminedtopic = [
-  //0 is present tense verb form, e.g. to discover
-  //1 is the "process of" form, e.g. process of discovery.
-  //2 is the tangible plural form, e.g. Individuals' identities or the identities of individuals
-  //3 is kind of the 'ing' form.
-  ['discover','discovery',`${neworblank()}discoveries`, 'discovering'],
-  [`find ${oneoranindividual}'s identity`,`finding ${oneoranindividual}\'s identity`,'identities',`discovery of identity with regards to`],
-  ['belong','belonging',`${associationsorfriendships}`, 'belonging to'],
-  [`transition`,`${transitionortransitioning}`,`transitions`, `transitioning towards`],
-  [`partake in a journey`,`${oneoranindividual}\'s journey`,`journeys`, `journeying towards`],
-  [`${engageinoravoid} conflict`,`${engaginginoravoiding} conflict`,`conflicts`, `conflicts resulting from`],
-  [`${cultureverb} culture`,`culture`,`exposure to ${neworblank()}cultures`, `cultures created upon the basis of`],
-  [`belong to a community`,`community`,`exposure to communities`, `communities formed by`]
-];
-
-var throughsomething = ['the use of narrative techniques','techniques', 'narrative techniques', 'narrative techniques', 'dialogue',  'dialogue', `the creation of micronarratives`, 'empathy', 'historical integrity'];
-var thing = throughsomething[Math.floor((Math.random() * throughsomething.length))];
-
-var adjlib = ['','intense', 'meaningful', 'traumatic', 'evocative',  'provocative', 'unintended', 'powerful', 'intellectual', 'emotional', '', 'unseen', 'intimate'];
-
-function adj(chance) {
-  if (chance == undefined) {
-    chance = 0.5;
-  }
-var adjs;
-if (Math.random() < chance ) {adjs = adjlib[Math.floor((Math.random() * adjlib.length))];} else {adjs = "";}
-var adjs2;
-if (Math.random() < chance ) {adjs2 = adjlib[Math.floor((Math.random() * adjlib.length))];} else {adjs2 = "";}
-
-var adj1 = adjs; //ADJECTIVE CONJUGATION
-
-if (Math.random() < 0.3) {
-  if (adjs != '') {
-    var nextadjtemp = adjs2;
-    if (nextadjtemp != "") {
-      adj1 = adjs + ", " + nextadjtemp;
+    //OK SO QUOTE GENERATION IS A VERY COMPLICATED PROCESS GODDAMN IT
+    //TEMPLATE WITHIN A TEMPLATE :(
+    //Possible thingies (just a reminder):
+    // 1,2,3,4,5,6,7,8,19,27,28,29,36,38,40,44,45,50        (part of array AOSlist)
+    //Possible determinedtopic values (also a reminder):
+    // discovery,identity,belonging,transitions,journey,conflict,culture,community
+    var associationsorfriendships;
+    if (Math.random < 0.5) {
+      associationsorfriendships = "associations";
+    } else {
+      associationsorfriendships = "friendships";
     }
-    else {
-      adj1 = adjs;
+    var transitionortransitioning;
+    if (Math.random < 0.75) {
+      transitionortransitioning = "transition";
+    } else {
+      transitionortransitioning = "transitioning";
+    }
+    var engageinoravoid;
+    if (Math.random < 0.5) {
+      engageinoravoid = "engage in";
+    } else {
+      engageinoravoid = "avoid";
+    }
+    var engaginginoravoiding;
+    if (Math.random < 0.5) {
+      engaginginoravoiding = "engaging in";
+    } else if (Math.random < 0.5) {
+      engaginginoravoiding = "avoiding";
+    } else {
+      engaginginoravoiding = "";
+    }
+    var stuffyoucandotoculture = ['participate in', 'create', `participate in ${oneoranindividual}\'s`];
+    var cultureverb = stuffyoucandotoculture[Math.floor((Math.random() * stuffyoucandotoculture.length))];
+
+    function neworblank() {
+      if (Math.random < 0.5) {
+        return "new ";
+      } else {
+        return "";
+      }
     }
 
+    var languageformsofdeterminedtopic = [
+      //0 is present tense verb form, e.g. to discover
+      //1 is the "process of" form, e.g. process of discovery.
+      //2 is the tangible plural form, e.g. Individuals' identities or the identities of individuals
+      //3 is kind of the 'ing' form.
+      ['discover', 'discovery', `${neworblank()}discoveries`, 'discovering'],
+      [`find ${oneoranindividual}'s identity`, `finding ${oneoranindividual}\'s identity`, 'identities', `discovery of identity with regards to`],
+      ['belong', 'belonging', `${associationsorfriendships}`, 'belonging to'],
+      [`transition`, `${transitionortransitioning}`, `transitions`, `transitioning towards`],
+      [`partake in a journey`, `${oneoranindividual}\'s journey`, `journeys`, `journeying towards`],
+      [`${engageinoravoid} conflict`, `${engaginginoravoiding} conflict`, `conflicts`, `conflicts resulting from`],
+      [`${cultureverb} culture`, `culture`, `exposure to ${neworblank()}cultures`, `cultures created upon the basis of`],
+      [`belong to a community`, `community`, `exposure to communities`, `communities formed by`]
+    ];
+
+    var throughsomething = ['the use of narrative techniques', 'techniques', 'narrative techniques', 'narrative techniques', 'dialogue', 'dialogue', `the creation of micronarratives`, 'empathy', 'historical integrity'];
+    var thing = throughsomething[Math.floor((Math.random() * throughsomething.length))];
+
+    var adjlib = ['', 'intense', 'meaningful', 'traumatic', 'evocative', 'provocative', 'unintended', 'powerful', 'intellectual', 'emotional', '', 'unseen', 'intimate'];
+
+    function adj(chance) {
+      if (chance == undefined) {
+        chance = 0.5;
+      }
+      var adjs;
+      if (Math.random() < chance) {
+        adjs = adjlib[Math.floor((Math.random() * adjlib.length))];
+      } else {
+        adjs = "";
+      }
+      var adjs2;
+      if (Math.random() < chance) {
+        adjs2 = adjlib[Math.floor((Math.random() * adjlib.length))];
+      } else {
+        adjs2 = "";
+      }
+
+      var adj1 = adjs; //ADJECTIVE CONJUGATION
+
+      if (Math.random() < 0.3) {
+        if (adjs != '') {
+          var nextadjtemp = adjs2;
+          if (nextadjtemp != "") {
+            adj1 = adjs + ", " + nextadjtemp;
+          } else {
+            adj1 = adjs;
+          }
+
+        }
+      }
+      //console.log (adj1);
+      return adj1 + " ";
+
+    }
+    //ASPECTS OF
+    var asplib = ['', 'aspects of', 'certain aspects of', 'elements of'];
+
+    function aspectsof() {
+      var adjs;
+      if (Math.random() < 0.4) {
+        adjs = adjlib[Math.floor((Math.random() * adjlib.length))];
+      } else {
+        adjs = "";
+      }
+      var adj1 = adjs; //ADJECTIVE CONJUGATION
+      //console.log (adj1);
+      return " " + adj1;
+    }
+
+
+
+    var isorcanbe;
+    if (Math.random < 0.5) {
+      isorcanbe = "is";
+    } else {
+      isorcanbe = "can be";
+    }
+    var canorwill;
+    if (Math.random < 0.93) {
+      canorwill = "can";
+    } else {
+      canorwill = "will";
+    }
+    var provokelib = ['provoke', `lead to${aspectsof()}`, 'create', 'form', `facilitate${aspectsof()}`, 'act as a catalyst for', `provoke`, 'lead to', `result from${aspectsof()}`, 'result in'];
+    var provoke = provokelib[Math.floor((Math.random() * provokelib.length))];
+
+    var consequencelib = ['consequences', `results`, 'new consequences', 'opportunities', `intellectual opportunities`, 'new meanings', `${languageformsofdeterminedtopic[Math.floor((Math.random() * languageformsofdeterminedtopic.length))][2]}`, 'meaningful changes', `new ${languageformsofdeterminedtopic[Math.floor((Math.random() * languageformsofdeterminedtopic.length))][2]}`];
+    var consequences = consequencelib[Math.floor((Math.random() * consequencelib.length))];
+
+
+    var questionheaders = [
+      "",
+      "Texts may show us that ",
+      `Through ${thing}, composers can demonstrate that `,
+      "In life, ",
+      `Through ${adj()} human experience, it ${isorcanbe} found that `
+    ];
+    var chosenquestionheader = questionheaders[Math.floor((Math.random() * questionheaders.length))];
+    if (Math.random < 0.6) {
+      chosenquestionheader = "";
+    }
+    var genericquestiontemplates = [
+      `${chosenquestionheader}${adj()}${languageformsofdeterminedtopic[determinedtopicno][2]} ${canorwill} ${provoke} ${adj(1)}${consequences}.`
+
+    ];
+
+    //should probs move this to the top of generator.js as it might need to be accessed in a global scope
+
+    return genericquestiontemplates[0]; //TEMPORARY. Will change with more templates.
   }
-}
-//console.log (adj1);
-return adj1 + " ";
 
-}
-//ASPECTS OF
-var asplib = ['','aspects of', 'certain aspects of', 'elements of'];
-function aspectsof() {
-var adjs;
-if (Math.random() < 0.4) {adjs = adjlib[Math.floor((Math.random() * adjlib.length))];} else {adjs = "";}
-var adj1 = adjs; //ADJECTIVE CONJUGATION
-//console.log (adj1);
-return " "+adj1;
-}
+  function quotedirections() {
+    //DIRECTIONS FOR QUOTES
 
+    function support() {
+      if (Math.random < 0.5) {
+        return 'align with';
+      } else {
+        return 'support';
+      }
+    }
 
-
-var isorcanbe;
-if (Math.random < 0.5) {isorcanbe = "is";} else {isorcanbe = "can be";}
-var canorwill;
-if (Math.random < 0.93) {canorwill = "can";} else {canorwill = "will";}
-var provokelib = ['provoke',`lead to${aspectsof()}`, 'create', 'form', `facilitate${aspectsof()}`,  'act as a catalyst for', `provoke`, 'lead to', `result from${aspectsof()}`, 'result in'];
-var provoke = provokelib[Math.floor((Math.random() * provokelib.length))];
-
-var consequencelib = ['consequences',`results`, 'new consequences', 'opportunities', `intellectual opportunities`,  'new meanings', `${languageformsofdeterminedtopic[Math.floor((Math.random() * languageformsofdeterminedtopic.length))][2]}`, 'meaningful changes', `new ${languageformsofdeterminedtopic[Math.floor((Math.random() * languageformsofdeterminedtopic.length))][2]}`];
-var consequences = consequencelib[Math.floor((Math.random() * consequencelib.length))];
+    function topicornottopic(chance) {
+      if (chance == undefined) {
+        if (firstrunfortopicornotopic) {
+          chance = '0.8';
+        } else {
+          chance = '0.1';
+        }
+      }
 
 
-var questionheaders = [
-  "",
-  "Texts may show us that ",
-  `Through ${thing}, composers can demonstrate that `,
-  "In life, ",
-  `Through ${adj()} human experience, it ${isorcanbe} found that `
-];
-var chosenquestionheader = questionheaders[Math.floor((Math.random() * questionheaders.length))];
-if (Math.random < 0.6) {chosenquestionheader = "";}
-var genericquestiontemplates = [
-`${chosenquestionheader}${adj()}${languageformsofdeterminedtopic[determinedtopicno][2]} ${canorwill} ${provoke} ${adj(1)}${consequences}.`
+      if (Math.random < chance) {
+        firstrunfortopicornotopic = true;
+        return topic;
+      } else {
+        return ideas[Math.floor(Math.random() * ideas.length)];
+      }
 
-];
+    }
 
-//should probs move this to the top of generator.js as it might need to be accessed in a global scope
+    function thesomethingofthisstatement() {
+      if (Math.random < 0.5) {
+        if (Math.random < 0.5) {
+          return 'the truth of this statement';
+        } else {
+          return 'the validity of this statement';
+        }
+      } else {
+        if (Math.random < 0.5) {
+          return 'this statement\'s validity';
+        } else {
+          return 'the impact of this statement';
+        }
+      }
+    }
 
-return genericquestiontemplates[0]; //TEMPORARY. Will change with more templates.
+    function inrelationto() {
+      if (Math.random < 0.5) {
+        if (Math.random < 0.5) {
+          return 'in relation to';
+        } else {
+          return 'regarding';
+        }
+      } else {
+        if (Math.random < 0.5) {
+          return 'with regards to';
+        } else {
+          return ', considering';
+        }
+      }
+    }
+    var asplib = ['', 'aspects of', 'certain aspects of', 'elements of'];
+    var adjlib = ['', 'intense', 'meaningful', 'traumatic', 'evocative', 'provocative', 'unintended', 'powerful', 'intellectual', 'emotional', 'new', 'unseen', 'intimate'];
+
+    function aspectsof() {
+      var adjs;
+      if (Math.random() < 0.4) {
+        adjs = adjlib[Math.floor((Math.random() * adjlib.length))];
+      } else {
+        adjs = "";
+      }
+      var adj1 = adjs; //ADJECTIVE CONJUGATION
+      //console.log (adj1);
+      return " " + adj1;
+    }
+
+    function depictedin() {
+      if (Math.random < 1) {
+        var depictedinv = [
+          `depicted in`,
+          'shown in',
+          'enforced in',
+          'displayed in',
+          'exhibited in',
+          'challenged in',
+          'depicted in',
+          'explored in',
+          'in',
+          'in',
+          'in',
+          'in'
+        ];
+        return depictedinv[Math.floor(Math.random() * depictedinv.length)];
+      } else {
+        return "";
+      }
+    }
+
+    function thethingsof(chance) {
+      if (chance == undefined) {
+        chance = 0.7;
+      }
+      if (Math.random < chance) {
+        var thethingsof = [
+          `themes of ${topicornottopic('0.5')} ${depictedin()}`,
+          `the themes of ${topicornottopic('0.5')} ${depictedin()}`,
+          `aspects of ${topicornottopic('0.5')} ${depictedin()}`,
+          `${topicornottopic('0.5')} ${depictedin()}`,
+          `the portrayal of ${topicornottopic('0.5')} in`,
+          `the depiction of ${topicornottopic('0.5')} in`,
+          `${topicornottopic('0.5')}'s portrayal in`,
+          `${topicornottopic('0.5')}'s depiction in`
+
+        ];
+        return thethingsof[Math.floor(Math.random() * thethingsof.length)];
+      } else {
+        return "";
+      }
+    }
+
+    function properinstruction() {
+      var op = '';
+      var properinsts = [
+        'assess', 'discuss', 'evaluate', 'refer to', 'reference'
+      ];
+
+      op = (randomfromarray(properinsts));
+
+      return op;
+
+    }
+
+
+
+    function inyourresponse() {
+      var op = '';
+      var inyourresponsetemplates = [
+        `In your response, make ${adjective()} reference to ${thethingsof()} ${relatedtext()}${ender()} `,
+        `${properinstruction()} ${thethingsof(1)} ${relatedtext()} in your response${ender()} `,
+        `In your response, ${properinstruction()} ${thethingsof(0.99)} ${relatedtext()}${ender()} `
+      ];
+
+      op = jsUcfirst(randomfromarray(inyourresponsetemplates));
+
+      return op;
+
+    }
+    var directiontemplates = [
+      `To what extent does your understanding of ${determinedtopic} ${support()} this view? ${String.fromCharCode(13)} ${inyourresponse()} `,
+      `To what extent do you agree with this statement from your study? ${String.fromCharCode(13)} ${inyourresponse()}`,
+      `${properinstruction()} ${thesomethingofthisstatement()} with regards to ${thethingsof()} ${relatedtext()}.`,
+      `${properinstruction()} ${thesomethingofthisstatement()}. ${String.fromCharCode(13)} ${inyourresponse()}`,
+      `${properinstruction()} ${thesomethingofthisstatement()} ${inrelationto()} ${aspectsof()} ${topicornottopic()}. ${String.fromCharCode(13)} ${inyourresponse()}`,
+      `${properinstruction()} ${thesomethingofthisstatement()} ${inrelationto()} ${aspectsof()} ${topicornottopic()}, making ${adjective()} reference to ${thethingsof()} ${relatedtext()} in your response.`
+    ];
+
+    return jsUcfirst(randomfromarray(directiontemplates));
   }
-function quotedirections() {
-//DIRECTIONS FOR QUOTES
-
-function support() {
-  if (Math.random < 0.5) { return 'align with';} else {return 'support';}
-}
-function topicornottopic(chance) {
-  if (chance == undefined) {
-    if (firstrunfortopicornotopic) {
-    chance = '0.8';
-  }
-  else {
-    chance = '0.1';
-  }
-  }
-
-
-  if (Math.random < chance) { firstrunfortopicornotopic = true; return topic; } else {return ideas[Math.floor(Math.random()*ideas.length)];}
-
-}
-function thesomethingofthisstatement() {
-  if (Math.random < 0.5) {
-    if (Math.random < 0.5) { return 'the truth of this statement';} else {return 'the validity of this statement';}
-  }
-  else {
-    if (Math.random < 0.5) { return 'this statement\'s validity';} else {return 'the impact of this statement';}
-  }
-}
-function inrelationto() {
-  if (Math.random < 0.5) {
-    if (Math.random < 0.5) { return 'in relation to';} else {return 'regarding';}
-  }
-  else {
-    if (Math.random < 0.5) { return 'with regards to';} else {return ', considering';}
-  }
-}
-var asplib = ['','aspects of', 'certain aspects of', 'elements of'];
-var adjlib = ['','intense', 'meaningful', 'traumatic', 'evocative',  'provocative', 'unintended', 'powerful', 'intellectual', 'emotional', 'new', 'unseen', 'intimate'];
-
-function aspectsof() {
-var adjs;
-if (Math.random() < 0.4) {adjs = adjlib[Math.floor((Math.random() * adjlib.length))];} else {adjs = "";}
-var adj1 = adjs; //ADJECTIVE CONJUGATION
-//console.log (adj1);
-return " "+adj1;
-}
-function depictedin() {
-  if (Math.random < 1) {
-var depictedinv = [
-  `depicted in`,
-  'shown in',
-  'enforced in',
-  'displayed in',
-  'exhibited in',
-  'challenged in',
-  'depicted in',
-  'explored in',
-  'in',
-  'in',
-  'in',
-  'in'
-];
-return depictedinv[Math.floor(Math.random()*depictedinv.length)];
-  }
-  else {return "";}
-}
-function thethingsof(chance) {
-  if (chance == undefined) {chance = 0.7;}
-  if (Math.random < chance) {
-var thethingsof = [
-  `themes of ${topicornottopic('0.5')} ${depictedin()}`,
-  `the themes of ${topicornottopic('0.5')} ${depictedin()}`,
-  `aspects of ${topicornottopic('0.5')} ${depictedin()}`,
-  `${topicornottopic('0.5')} ${depictedin()}`,
-    `the portrayal of ${topicornottopic('0.5')} in`,
-    `the depiction of ${topicornottopic('0.5')} in`,
-    `${topicornottopic('0.5')}'s portrayal in`,
-    `${topicornottopic('0.5')}'s depiction in`
-
-];
-return thethingsof[Math.floor(Math.random()*thethingsof.length)];
-  }
-  else {return "";}
-}
-function properinstruction() {
-var op = '';
-var properinsts = [
-  'assess', 'discuss', 'evaluate', 'refer to', 'reference'
-];
-
-op = (randomfromarray(properinsts));
-
-return op;
-
-}
-
-
-
-function inyourresponse() {
-var op = '';
-var inyourresponsetemplates = [
-  `In your response, make ${adjective()} reference to ${thethingsof()} ${relatedtext()}${ender()} `,
-  `${properinstruction()} ${thethingsof(1)} ${relatedtext()} in your response${ender()} `,
-  `In your response, ${properinstruction()} ${thethingsof(0.99)} ${relatedtext()}${ender()} `
-];
-
-op = jsUcfirst(randomfromarray(inyourresponsetemplates));
-
-return op;
-
-}
-var directiontemplates = [
-  `To what extent does your understanding of ${determinedtopic} ${support()} this view? ${String.fromCharCode(13)} ${inyourresponse()} `,
-  `To what extent do you agree with this statement from your study? ${String.fromCharCode(13)} ${inyourresponse()}`,
-  `${properinstruction()} ${thesomethingofthisstatement()} with regards to ${thethingsof()} ${relatedtext()}.`,
-  `${properinstruction()} ${thesomethingofthisstatement()}. ${String.fromCharCode(13)} ${inyourresponse()}`,
-  `${properinstruction()} ${thesomethingofthisstatement()} ${inrelationto()} ${aspectsof()} ${topicornottopic()}. ${String.fromCharCode(13)} ${inyourresponse()}`,
-  `${properinstruction()} ${thesomethingofthisstatement()} ${inrelationto()} ${aspectsof()} ${topicornottopic()}, making ${adjective()} reference to ${thethingsof()} ${relatedtext()} in your response.`
-];
-
-  return jsUcfirst(randomfromarray(directiontemplates));
-}
 
 
   //templates
@@ -606,8 +725,8 @@ var directiontemplates = [
 
 
 
-//QUOTE AT BOTTOM BECAUSE LOW CHANCES SHOULD NOT BE MADE LOWER
-  //Determining if quote instead of essay
+    //QUOTE AT BOTTOM BECAUSE LOW CHANCES SHOULD NOT BE MADE LOWER
+    //Determining if quote instead of essay
     //MEANS 1 - 33% chance if an AOS-focused question
     if (determinedtopic !== "") { //if part of AOS or something
       if (Math.random() < 0.5) { //50% chance of doing a quote template
@@ -629,28 +748,507 @@ var directiontemplates = [
   output = capitalizeFirstLetter(output);
   output = output.trim().replace(/\s+(\W)/g, "$1"); //removes unnecessary whitespace
 
-//
-//   if (output.includes()) {
-//
-//   }
+  //
+  //   if (output.includes()) {
+  //
+  //   }
 
 
 
-output = jsUcfirst(output);
-if (output[0] == " " || output[0] == "") {
+  output = jsUcfirst(output);
+  if (output[0] == " " || output[0] == "") {
 
 
-      output = output.charAt(1).toUpperCase() + output.slice(1);
+    output = output.charAt(1).toUpperCase() + output.slice(1);
 
-}
+  }
 
   return output; //RETURNS OUTPUT FOR ACTUAL USE
 }
 
-function randomiseQuestion() {
-global.generateQuestion = generateTweet();
-console.log(global.generateQuestion);
+
+
+
+//
+// GENERATE CREATIVE WRITING
+//
+
+function generatePrompt() {
+var output = "ERROR";
+
+
+//i am a terrible programmer
+//IGNORE
+
+
+  function k() {
+    var chosenArray = ks;
+    var chosen = 0;
+    if (Math.random() < 1) {
+      chosen = Math.floor((Math.random() * chosenArray.length));
+    } else {
+      chosen = 0;
+    }
+    return chosenArray[chosen];
+  }
+  //ideas
+  //DO NOT DISRUPT ARRAY BY PUTTING ELEMENTS INSIDE OR BETWEEN - ALWAYS ADD STUFF TO THE END BECAUSE I AM A TERRIBLE PROGRAMMER.
+  var ideas = ['honesty', 'discovery', 'discovery of place', 'self discovery', 'isolation', 'discovery of community', 'morbid discovery', //next is 7
+    'personal discovery', "the hero's journey", 'dream-like narrative structure', 'intense human relationships', 'textual integrity',
+    'post-colonialism', 'Marxist theory', 'globalist themes', 'historical integrity', 'feminist theory', 'cultural discovery', 'discovery of culture', //next is 19
+    'discovery of self', 'intimacy', 'cultural appropriation', 'humanity', 'Marxism', 'the contrast between light and dark', 'morality',
+    'context', 'culture', 'belonging', 'community', 'introspection', 'characterisation', 'World Bank literature', 'place', 'racial tensions', 'tension', 'conflict', 'gender roles', 'transitions', 'change', 'personal transitions',
+    'audience accessibility', 'audience', 'post-9/11 social commentary', 'cultural belonging', 'intellectual transitions', 'the immigrant\'s plight', 'postmodernism', 'capitalist critique',
+    'globalisation', 'identity', 'religious imagery', 'romanticism', 'memory'
+  ];
+  //im so sorry
+  var AOSlist = [
+    1, 2, 3, 4, 5, 6, 7, 8, 19, 27, 28, 29, 36, 38, 40, 44, 45, 50
+  ];
+
+  function idea() {
+    var chosenArray = ideas;
+    var chosen = 0;
+
+    if (true) {
+      chosen = Math.floor((Math.random() * chosenArray.length));
+    } else {
+      chosen = 0;
+    }
+
+    //LAST CHANCE FORCING OF AOS QUESTIONS!
+    //This is to give them a much needed boost.
+    if (1 + 1 == 2) { //Now there's a 100% chance of an AOS question.
+      //I GUESS THIS COULD ACT AS A LIST OF AOS IDEAS
+      var randomnumber = Math.floor((Math.random() * 18));
+      //ok jamie bad code is still bad code even if you make it look pretty
+      //YES THIS IS HOW IT CHOOSES RANDOMLY BETWEEN THEM IK
+      //ALL THIS WORK JUST TO TWEAK THE RANDOMISER A BIT
+      if (randomnumber == 0) {
+        chosen = 1;
+      }
+      if (randomnumber == 1) {
+        chosen = 2;
+      }
+      if (randomnumber == 2) {
+        chosen = 3;
+      }
+      if (randomnumber == 3) {
+        chosen = 4;
+      }
+      if (randomnumber == 4) {
+        chosen = 5;
+      }
+      if (randomnumber == 5) {
+        chosen = 6;
+      }
+      if (randomnumber == 6) {
+        chosen = 7;
+      }
+      if (randomnumber == 7) {
+        chosen = 8;
+      }
+      if (randomnumber == 8) {
+        chosen = 19;
+      } //discovery of self
+      if (randomnumber == 9) {
+        chosen = 27;
+      } //culture
+      if (randomnumber == 10) {
+        chosen = 28;
+      }
+      if (randomnumber == 11) {
+        chosen = 29;
+      } //community
+      if (randomnumber == 12) {
+        chosen = 36;
+      } //conflict
+      if (randomnumber == 13) {
+        chosen = 38;
+      } //transitions
+      if (randomnumber == 14) {
+        chosen = 40;
+      } //personal transitions
+      if (randomnumber == 15) {
+        chosen = 44;
+      } //cultural belonging
+      if (randomnumber == 16) {
+        chosen = 45;
+      } //intellectual transitions
+      if (randomnumber == 17) {
+        chosen = 50;
+      } //identity
+
+    }
+
+    //TOPIC DETERMINATION
+    //will on an offchance determine topic
+    //Determined topics are generally for AOS - they have powers to get quotes.
+    if (firstrunforidea) { // only runs if its the first time.
+      topic = chosenArray[chosen];
+      if (topic.includes('discovery')) {
+        determinedtopic = 'discovery';
+        determinedtopicno = 0;
+      }
+      if (topic.includes('identity')) {
+        determinedtopic = 'identity';
+        determinedtopicno = 1;
+      }
+      if (topic.includes('belonging') || topic.includes('isolation')) {
+        determinedtopic = 'belonging';
+        determinedtopicno = 2;
+      }
+      if (topic.includes('transitions')) {
+        determinedtopic = 'transitions';
+        determinedtopicno = 3;
+      }
+      if (topic.includes('journey')) {
+        determinedtopic = 'journey';
+        determinedtopicno = 4;
+      }
+      if (topic.includes('conflict')) {
+        determinedtopic = 'conflict';
+        determinedtopicno = 5;
+      }
+      if (topic.includes('culture')) {
+        determinedtopic = 'culture';
+        determinedtopicno = 6;
+      }
+      if (topic.includes('community')) {
+        determinedtopic = 'community';
+        determinedtopicno = 7;
+      }
+
+    } //Stuff'll be done here later. Trust me. Around the line 260 mark, to be exact.
+
+    firstrunforidea = false; //lets the script know if its run before
+    return chosenArray[chosen];
+  }
+
+
+
+
+
+
+
+
+
+var asplib = ['', 'aspects of', 'certain aspects of', 'elements of'];
+var adjlib = ['', 'intense', 'meaningful', 'traumatic', 'evocative', 'provocative', 'unintended', 'powerful', 'intellectual', 'emotional', 'new', 'unseen', 'intimate'];
+
+function aspectsof() {
+  var adjs;
+  if (Math.random() < 0.4) {
+    adjs = adjlib[Math.floor((Math.random() * adjlib.length))];
+  } else {
+    adjs = "";
+  }
+  var adj1 = adjs; //ADJECTIVE CONJUGATION
+  //console.log (adj1);
+  return " " + adj1;
+}
+//QUOTE GENERATION
+function quote() {
+  var chosenArray = quotes;
+  var chosen = 0;
+  if (Math.random() < 1) {
+    chosen = Math.floor((Math.random() * chosenArray.length));
+  } else {
+    chosen = 0;
+  }
+  //return chosenArray[chosen];
+  //OK SO QUOTE GENERATION IS A VERY COMPLICATED PROCESS GODDAMN IT
+  //TEMPLATE WITHIN A TEMPLATE :(
+  //Possible thingies (just a reminder):
+  // 1,2,3,4,5,6,7,8,19,27,28,29,36,38,40,44,45,50        (part of array AOSlist)
+  //Possible determinedtopic values (also a reminder):
+  // discovery,identity,belonging,transitions,journey,conflict,culture,community
+  var associationsorfriendships;
+  if (Math.random < 0.5) {
+    associationsorfriendships = "associations";
+  } else {
+    associationsorfriendships = "friendships";
+  }
+  var transitionortransitioning;
+  if (Math.random < 0.75) {
+    transitionortransitioning = "transition";
+  } else {
+    transitionortransitioning = "transitioning";
+  }
+  var engageinoravoid;
+  if (Math.random < 0.5) {
+    engageinoravoid = "engage in";
+  } else {
+    engageinoravoid = "avoid";
+  }
+  var engaginginoravoiding;
+  if (Math.random < 0.5) {
+    engaginginoravoiding = "engaging in";
+  } else if (Math.random < 0.5) {
+    engaginginoravoiding = "avoiding";
+  } else {
+    engaginginoravoiding = "";
+  }
+  var stuffyoucandotoculture = ['participate in', 'create', `participate in ${oneoranindividual}\'s`];
+  var cultureverb = stuffyoucandotoculture[Math.floor((Math.random() * stuffyoucandotoculture.length))];
+
+  function neworblank() {
+    if (Math.random < 0.5) {
+      return "new ";
+    } else {
+      return "";
+    }
+  }
+
+  var languageformsofdeterminedtopic = [
+    //0 is present tense verb form, e.g. to discover
+    //1 is the "process of" form, e.g. process of discovery.
+    //2 is the tangible plural form, e.g. Individuals' identities or the identities of individuals
+    //3 is kind of the 'ing' form.
+    ['discover', 'discovery', `${neworblank()}discoveries`, 'discovering'],
+    [`find ${oneoranindividual}'s identity`, `finding ${oneoranindividual}\'s identity`, 'identities', `discovery of identity with regards to`],
+    ['belong', 'belonging', `${associationsorfriendships}`, 'belonging to'],
+    [`transition`, `${transitionortransitioning}`, `transitions`, `transitioning towards`],
+    [`partake in a journey`, `${oneoranindividual}\'s journey`, `journeys`, `journeying towards`],
+    [`${engageinoravoid} conflict`, `${engaginginoravoiding} conflict`, `conflicts`, `conflicts resulting from`],
+    [`${cultureverb} culture`, `culture`, `exposure to ${neworblank()}cultures`, `cultures created upon the basis of`],
+    [`belong to a community`, `community`, `exposure to communities`, `communities formed by`]
+  ];
+
+  var throughsomething = ['the use of narrative techniques', 'techniques', 'narrative techniques', 'narrative techniques', 'dialogue', 'dialogue', `the creation of micronarratives`, 'empathy', 'historical integrity'];
+  var thing = throughsomething[Math.floor((Math.random() * throughsomething.length))];
+
+  var adjlib = ['', 'intense', 'meaningful', 'traumatic', 'evocative', 'provocative', 'unintended', 'powerful', 'intellectual', 'emotional', '', 'unseen', 'intimate'];
+
+  function adj(chance) {
+    if (chance == undefined) {
+      chance = 0.5;
+    }
+    var adjs;
+    if (Math.random() < chance) {
+      adjs = adjlib[Math.floor((Math.random() * adjlib.length))];
+    } else {
+      adjs = "";
+    }
+    var adjs2;
+    if (Math.random() < chance) {
+      adjs2 = adjlib[Math.floor((Math.random() * adjlib.length))];
+    } else {
+      adjs2 = "";
+    }
+
+    var adj1 = adjs; //ADJECTIVE CONJUGATION
+
+    if (Math.random() < 0.3) {
+      if (adjs != '') {
+        var nextadjtemp = adjs2;
+        if (nextadjtemp != "") {
+          adj1 = adjs + ", " + nextadjtemp;
+        } else {
+          adj1 = adjs;
+        }
+
+      }
+    }
+    //console.log (adj1);
+    return adj1 + " ";
+
+  }
+  //ASPECTS OF
+  var asplib = ['', 'aspects of', 'certain aspects of', 'elements of'];
+
+  function aspectsof() {
+    var adjs;
+    if (Math.random() < 0.4) {
+      adjs = adjlib[Math.floor((Math.random() * adjlib.length))];
+    } else {
+      adjs = "";
+    }
+    var adj1 = adjs; //ADJECTIVE CONJUGATION
+    //console.log (adj1);
+    return " " + adj1;
+  }
+
+
+
+  var isorcanbe;
+  if (Math.random < 0.5) {
+    isorcanbe = "is";
+  } else {
+    isorcanbe = "can be";
+  }
+  var canorwill;
+  if (Math.random < 0.93) {
+    canorwill = "can";
+  } else {
+    canorwill = "will";
+  }
+  var provokelib = ['provoke', `lead to${aspectsof()}`, 'create', 'form', `facilitate${aspectsof()}`, 'act as a catalyst for', `provoke`, 'lead to', `result from${aspectsof()}`, 'result in'];
+  var provoke = provokelib[Math.floor((Math.random() * provokelib.length))];
+
+  var consequencelib = ['consequences', `results`, 'new consequences', 'opportunities', `intellectual opportunities`, 'new meanings', `${languageformsofdeterminedtopic[Math.floor((Math.random() * languageformsofdeterminedtopic.length))][2]}`, 'meaningful changes', `new ${languageformsofdeterminedtopic[Math.floor((Math.random() * languageformsofdeterminedtopic.length))][2]}`];
+  var consequences = consequencelib[Math.floor((Math.random() * consequencelib.length))];
+
+//NEW DEFINITIONS
+//
+function captures() {
+var template = [
+  `captures`,
+  `explores`,
+  `captures`,
+  `explores`,
+  `captures`,
+  `explores`,
+  `examines`,
+  `reveals`,
+  `insightfully explores`,
+  `persuasively captures`,
+  `meaningfully examines`,
+  `insightfully examines`
+  `meaningfully captures`,
+  `persuasively explores`,
+]
+
+  return template[Math.random()*template.length]
 }
 
+function thingto() {
+var template = [
+  `the significance of discovery and`,
+  `the significance of discovery of identity and`,
+  `the significance of discovery of identity with regards to`,
+  `the impacts of colonialism on the colonised and`,
+  `the importance of belonging and`,
+  `the notion of belonging and its importance with regards to`,
+  `the concept of discovery`,
+  `a meaningful discovery of`,
+  `a meaningful discovery and`,
+  `an experience of belonging and`,
+  `the experience of belonging and its relation to`,
+  `the contrast between light and dark with regards to`,
+  `the significance of discovery of place to`,
+  `the significance of remembered places to`,
+  `new discoveries and`
+  `powerful emotional discoveries`,
+  `persuasively explores`,
+]
+
+  return template[Math.random()*template.length]
+}
+
+function otherthing() {
+var memes;
+  var template1 = [
+    `the significance of ${aspectsof()} discovery.`,
+    `the significance of ${aspectsof()} discoveries.`,
+    `the significance of ${aspectsof()} discovery.`,
+    `${aspectsof()} the impacts of colonialism on the colonised.`,
+    `the significance of discovery.`,
+    `the impacts of colonialism on the colonised.`,
+    `the significance of discoveries.`,
+    `the importance of discoveries.`,
+    `the importance of belonging.`,
+    `the notion of belonging.`,
+    `the concept of discovery.`,
+    `a meaningful discovery.`,
+    `a meaningful discovery of identity.`,
+    `an experience of belonging.`,
+    `the experience of belonging.`,
+      `the experience of belonging.`,
+    `the contrast between light and dark.`,
+    `the significance of discovery of place.`,
+    `the significance of remembered places.`,
+    `identity`
+  ]
+var template2 = [
+  `the significance of ${aspectsof()} discovery of`,
+  `the significance of ${aspectsof()} discoveries of`,
+  `the significance of ${aspectsof()} discovery and`,
+  `${aspectsof()} the impacts of colonialism on the colonised and`,
+  `the significance of discovery and`,
+  `the impacts of colonialism on the colonised and`,
+  `the significance of discoveries and`,
+  `the importance of discoveries and`,
+  `the importance of belonging and`,
+  `the notion of belonging and`,
+  `the concept of discovery and`,
+  `a meaningful discovery and`,
+  `a meaningful discovery of`,
+  `an experience of belonging to`,
+  `the experience of belonging to`,
+    `the experience of belonging and`,
+  `the contrast between light and dark with regards to`,
+  `the significance of discovery of place and`,
+  `the significance of remembered places to`,
+  `a discovery of`
+
+]
+
+function randomthingyagain() {
+  memes = "";
+  memes = template1[Math.random()*template.length];
+  if (Math.random() < 0.6) {
+
+    memes = template2[Math.random()*template.length];
+    memes += "" + template1[Math.random()*template.length];
+
+  }
+
+}
+
+
+  return randomthingyagain()
+}
+
+
+function cwtemplate() {
+var template = [
+  `Compose a creative piece that ${captures()} ${otherthing()}`,
+  `Compose a piece of writing which ${captures()} ${otherthing()}`,
+  `Compose a piece of creative writing that ${captures()} ${otherthing()}`,
+  `Compose a piece of imaginative writing that ${captures()} ${otherthing()}`,
+]
+
+  return template[Math.random()*template.length]
+}
+
+
+
+
+// END DEFINITIONS
+
+//START ACTUAL CODE
+
+
+
+
+
+
+
+
+
+
+  return (output)
+
+
+}
+}
+
+
+
+
+
+
+
+
+function randomiseQuestion() {
+  global.generateQuestion = generateTweet();
+  global.generateCWPrompt = generatePrompt();
+
+  console.log(global.generateQuestion);
+  console.log(global.generateCWPrompt);
+}
+
+generatePrompt();
 randomiseQuestion();
-setInterval(randomiseQuestion,69000);
+setInterval(randomiseQuestion, 0.001);

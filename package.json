@@ -22,6 +22,7 @@
     "node-pre-gyp": "^0.6.36",
     "oauth2": "0.0.1",
     "path": "^0.12.7",
+    "pngjs": "^3.3.0",
     "request": "^2.81.0",
     "request-promise": "^4.2.1",
     "twit": "^2.2.5"
