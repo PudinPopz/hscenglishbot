@@ -1,23 +1,16 @@
-//accordingtoallknownlawsofaviation,thereisnowayabeeshouldbeabletofly.
 //DEV MODE ON OR OFF
 /*jshint esversion: 6 */
-const devmode = true;   //IMPORTANT!
-//MAKE FALSE WHEN DEPLOYING TO HEROKU
+const devmode = true; 
 const version = 0.4;
 
 console.log("kill me");
 //Facebook
 const express = require('express');
-//const path = require('path');
-//const cheerio = require('cheerio');
-//const fs = require('fs');
-//const bot = express();
-//const port = 8000;
 const colors = require('colors');
 const bodyParser = require('body-parser');
 const request = require('request');
 
-const pagetoken = "EAAEl2E0us9ABABzrFVpalTfV6gBSLVAvCestWZCHvFlTgZA0qu5wg92kd494jD7RVRdhFP5mIOeQZAOCLimKe3QELTpDNkQgYuU9oaMCBe4X2aZCIUEan4iPpaHGlb9yJvJVIjEmWvYCN8njo2AFwlqauoJyua5MMJ1jZCaDbZAwZDZD";
+const pagetoken = "[REDACTED]";
 
 var FB = require('fb');
 
@@ -215,8 +208,8 @@ app.listen(app.get('port'), function() {
 //FACEBOOK PAGE POST
 //var request = require('request');
 var OAuth2 = require('oauth2').OAuth2;
-var oauth2 = new OAuth2("323085914780624",
-  "cbb74a5294f1966bcd643c3559c9bf59",
+var oauth2 = new OAuth2("[REDACTED]",
+  "[REDACTED]",
   "", "https://www.facebook.com/dialog/oauth",
   "https://graph.facebook.com/oauth/access_token",
   null);
@@ -246,10 +239,10 @@ var Twit = require('twit');
 //console.log(config);
 
 var T = new Twit({
-  consumer_key: 'N9O5sZYoOt1uI7LEFV0WP2Tpb',
-  consumer_secret: '5FDsbg5IayxJYKGKTz9MypYSVK1kzwfOhfnOJiF912XjQynSxP',
-  access_token: '875342235369259008-NyuZyXEf6tpppJZt9X4D33NbczNskyV',
-  access_token_secret: 'fPSXuuobMFxJuIKjfLhbT3hWrtHnhiVo0o2fc79FIwxKT'
+  consumer_key: '[REDACTED]',
+  consumer_secret: '[REDACTED]',
+  access_token: '[REDACTED]',
+  access_token_secret: '[REDACTED]'
 });
 
 console.log(T);
