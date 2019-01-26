@@ -1,8 +1,10 @@
 /*jshint esversion: 6 */
 console.log('generator fired up');
 //generator
+var count = 0;
 function generateTweet() {
-
+var ts = ((new Date()).getTime() / 1000);
+   count+=1;
   //ez functions
   function randomfromarray(array) {
     return array[Math.floor(Math.random() * array.length)];
@@ -763,6 +765,7 @@ function generateTweet() {
 
   }
 
+  console.log("COUNT " + (count));
   return output; //RETURNS OUTPUT FOR ACTUAL USE
 }
 
@@ -1234,13 +1237,6 @@ var template = [
 }
 }
 
-
-
-
-
-
-
-
 function randomiseQuestion() {
   global.generateQuestion = generateTweet();
   global.generateCWPrompt = generatePrompt();
@@ -1251,4 +1247,4 @@ function randomiseQuestion() {
 
 generatePrompt();
 randomiseQuestion();
-setInterval(randomiseQuestion, 0.001);
+setInterval(randomiseQuestion, 0.0000000000000000000000000000000000001);
