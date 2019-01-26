@@ -1,7 +1,6 @@
 //DEV MODE ON OR OFF
 /*jshint esversion: 6 */
-const devmode = true;   //IMPORTANT!
-//MAKE FALSE WHEN DEPLOYING TO HEROKU
+const devmode = true; 
 const version = 0.4;
 
 console.log("kill me");
@@ -11,7 +10,7 @@ const colors = require('colors');
 const bodyParser = require('body-parser');
 const request = require('request');
 
-const pagetoken = "" 
+const pagetoken = "[REDACTED]";
 
 var FB = require('fb');
 
@@ -92,15 +91,12 @@ app.get('/webhook/', function(req, res) {
 app.post('/webhook', function(req, res) {
   var data = req.body;
   console.log('hi');
-  // Make sure this is a page subscription
+  
   if (data.object === 'page') {
-
-    // Iterate over each entry - there may be multiple if batched
     data.entry.forEach(function(entry) {
       var pageID = entry.id;
       var timeOfEvent = entry.time;
 
-      // Iterate over each messaging event
       entry.messaging.forEach(function(event) {
         if (event.message) {
           receivedMessage(event);
@@ -110,11 +106,6 @@ app.post('/webhook', function(req, res) {
       });
     });
 
-    // Assume all went well.
-    //
-    // You must send back a 200, within 20 seconds, to let us know
-    // you've successfully received the callback. Otherwise, the request
-    // will time out and we will keep trying to resend.
     res.sendStatus(200);
   }
 });
@@ -136,9 +127,6 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
 
   if (messageText) {
-
-    // If we receive a text message, check to see if it matches a keyword
-    // and send back the example. Otherwise, just echo the text we received.
     switch (messageText) {
       case 'generic':
         sendGenericMessage(senderID);
@@ -157,7 +145,7 @@ function receivedMessage(event) {
 }
 
 function sendGenericMessage(recipientId, messageText) {
-  // To be expanded in later sections
+
 }
 
 function sendTextMessage(recipientId, messageText) {
@@ -207,17 +195,16 @@ app.listen(app.get('port'), function() {
 });
 
 //FACEBOOK PAGE POST
-//var request = require('request');
+
 var OAuth2 = require('oauth2').OAuth2;
-var oauth2 = new OAuth2("323085914780624",
-  "cbb74a5294f1966bcd643c3559c9bf59",
+var oauth2 = new OAuth2("[REDACTED]",
+  "[REDACTED]",
   "", "https://www.facebook.com/dialog/oauth",
   "https://graph.facebook.com/oauth/access_token",
   null);
 
 app.get('/facebook/auth', function(req, res) {
   var redirect_uri = "https://hscenglishbot.herokuapp.com/" + "/Path_To_Be_Redirected_to_After_Verification";
-  // For eg. "http://localhost:3000/facebook/callback"
   var params = {
     'redirect_uri': redirect_uri,
     'scope': 'user_about_me,publish_actions'
@@ -234,16 +221,11 @@ app.get('/facebook/auth', function(req, res) {
 
 //Twitter
 var Twit = require('twit');
-
-//var config = require('./config.js');
-
-//console.log(config);
-
 var T = new Twit({
-  consumer_key: 'N9O5sZYoOt1uI7LEFV0WP2Tpb',
-  consumer_secret: '5FDsbg5IayxJYKGKTz9MypYSVK1kzwfOhfnOJiF912XjQynSxP',
-  access_token: '875342235369259008-NyuZyXEf6tpppJZt9X4D33NbczNskyV',
-  access_token_secret: 'fPSXuuobMFxJuIKjfLhbT3hWrtHnhiVo0o2fc79FIwxKT'
+  consumer_key: '[REDACTED]',
+  consumer_secret: '[REDACTED]',
+  access_token: '[REDACTED]',
+  access_token_secret: '[REDACTED]'
 });
 
 console.log(T);
