@@ -1,4 +1,3 @@
-//accordingtoallknownlawsofaviation,thereisnowayabeeshouldbeabletofly.
 //DEV MODE ON OR OFF
 /*jshint esversion: 6 */
 const devmode = true;   //IMPORTANT!
@@ -8,16 +7,11 @@ const version = 0.4;
 console.log("kill me");
 //Facebook
 const express = require('express');
-//const path = require('path');
-//const cheerio = require('cheerio');
-//const fs = require('fs');
-//const bot = express();
-//const port = 8000;
 const colors = require('colors');
 const bodyParser = require('body-parser');
 const request = require('request');
 
-const pagetoken = "EAAEl2E0us9ABABzrFVpalTfV6gBSLVAvCestWZCHvFlTgZA0qu5wg92kd494jD7RVRdhFP5mIOeQZAOCLimKe3QELTpDNkQgYuU9oaMCBe4X2aZCIUEan4iPpaHGlb9yJvJVIjEmWvYCN8njo2AFwlqauoJyua5MMJ1jZCaDbZAwZDZD";
+const pagetoken = "" 
 
 var FB = require('fb');
 
